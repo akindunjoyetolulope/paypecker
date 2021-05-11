@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Gloopro</title>
+</head>
+<body>
+    <header>
+        <nav class="lflex">
+            <div class="brand">
+                <a href="/"><img src="images/paypecker_logo.png" alt="paypecker logo"></a>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Use Cases</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+                <a href="#" class="glooPButton navButton">Get Started</a>
+            </div>
+        </nav>
+        
+        <!-- Nav only visible on mobile and tablet devices - Begin here -->
+
+        <!-- Hamburger menu -->
+        <nav class="lxvflex">
+            <div class="brand">
+                <a href="/"><img src="images/paypecker_logo.png" alt="paypecker logo"></a>
+            </div>
+            <div class="menu-wrapper" onclick="openNav()">
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Inside menu content -->
+        <div id="mobileNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <li><a href="#">Features</a></li>
+                    <li><a href="#">Use Cases</a></li>
+                    <li><a href="#">Pricing</a></li>
+                <!-- <li><a href="./pricing.html">Pricing</a></li> -->
+                <li><a href="./pricing.html">Get Started</a></li>
+            </div>
+        </div>
+        <!-- Nav only visible on mobile and tablet devices - End here -->
+
+        <section class="hero">
+            <div class="left">
+                <h1>Business Process and Finance Infrastructure </h1>
+                <h4>For African Retailers and Restaurants</h4>
+                <p>Whether you are a small convenience store, a single location pharmacy, a multi-location supermarket, an enterprise scale QSR, or national food chain or retailer, PayPecker has the features you need.</p>
+                <div class="links">
+                    <a href="./pricing.html" class="glooPButton largeButton">Explore the PayPecker Stack</a>
+                    <a href="#">Sign up -></a>
+                </div>
+            </div>
+            <div class="right">
+                <img src="images/header_img.png" alt="App preview">
+            </div>
+        </section>
+    </header>
+
+    <section id="description" class="description">
+        <div class="top">
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <img src="images/img_2.png" alt="Description picture">
+            </div>
+            <div class="right">
+                <div class="right-box">
+                    <p>FEATURE-PACKED</p>
+                    <h3>Enjoy our point<br> of sales system</h3>
+                    <p>PayPecker provides a vertical supply-chain-fintech-infrastructure (SCFI) stack to automate end-to-end all the trading, inventory, payments, financial, operations, and commercial flows of African retailers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="description" class="description">
+        <div class="top">
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <img src="images/img_2.png" alt="Description picture">
+            </div>
+            <div class="right">
+                <div class="right-box">
+                    <p>FEATURE-PACKED</p>
+                    <h3>Enjoy our point<br> of sales system</h3>
+                    <p>PayPecker provides a vertical supply-chain-fintech-infrastructure (SCFI) stack to automate end-to-end all the trading, inventory, payments, financial, operations, and commercial flows of African retailers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="description-two">
+        <div class="top">
+        </div>
+        <div class="bottom">
+            <div class="right">
+                <img src="images/img_2.png" alt="Description picture">
+            </div>
+            <div class="left">
+                <div class="left-box">
+                    <p>FEATURE-PACKED</p>
+                    <h3>Enjoy our point<br> of sales system</h3>
+                    <p>PayPecker provides a vertical supply-chain-fintech-infrastructure (SCFI) stack to automate end-to-end all the trading, inventory, payments, financial, operations, and commercial flows of African retailers.</p> 
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="testimonial">
+        <p>MORE FROM PAYPECKER</p>
+        <h2 class="heading">Discover more <br>tools and resources</h2>
+        <div class="testimonial-body">
+            <div class="glooCard testimony">
+                <div class="brandLogo">
+                    <img src="images/featured-package.png" alt="Brand logo">
+                </div>
+                <div class="content">
+                    <h2>Feature-packed</h2>
+                    <p>Point of Sales, eProcurement, robust<br> inventory management, and more!</p>
+                </div>
+                <div class="bottom">
+                    <p><a href="#">See all features -></a></p>
+                </div>
+            </div>
+            <div class="glooCard testimony">
+                <div class="brandLogo">
+                    <img src="images/all-feature.png" alt="Brand logo">
+                </div>
+                <div class="content">
+                    <h3>All Use-cases </h3>
+                    <p>Find the use-case tailor-made for you</p>
+                </div>
+                <div class="bottom">
+                    <p><a href="#">See some use-cases -></a></p>
+                </div>
+            </div>
+            <div class="glooCard testimony">
+                <div class="brandLogo">
+                    <img src="images/simple-price.png" alt="Brand logo">
+                </div>
+                <div class="content">
+                    <h3>Simple pricing</h3>
+                    <p>Leave complex fee structures behind</p>
+                </div>
+                <div class="bottom">
+                    <p><a href="#">Get started -></a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="horizontal-rule-short afterBS"></div>
+    <div class="certifications">
+        <h2 class="heading">Trusted by leading<br> African retailers and restaurants</h2>
+            <!-- <div class="bottom">
+                <div class="left">
+                  <h3>PayPecker provides financial solutions working capital and new outlet financing, to our proven customers!</h3>
+                  <p>David Umoh — Co-founder</p>
+                </div>
+                <div class="right">
+                  <p>PayPecker provides a vertical supply-chain-fintech-infrastructure (SCFI) stack to automate end-to-end all the trading, inventory, payments, financial, operations, and commercial flows of African retailers and restaurants. </p>
+                </div>
+            </div> -->
+
+    </div>
+    <div class="featured">
+        <div class="brandList">
+            <div class="brand">
+                <img src="images/brands/facebook.png" alt="facebook logo">
+            </div>
+            <div class="brand">
+                <img src="images/brands/microsoft.png" alt="microsoft logo">
+            </div>
+            <div class="brand">
+                <img src="images/brands/ericsson.png" alt="The Economist">
+            </div>
+        </div>
+    </div> 
+
+    <div class="horizontal-rule-short afterBS"></div>
+    <div class="certifications">
+        <div class="contentx">
+            <p class="head">Growth Infrastructure for <br>Retailers and Restaurants</p>
+            <p class="down">PayPecker provides a vertical supply-chain-fintech-infrastructure (SCFI) stack to automate end-to-end all the trading, inventory, payments, financial, operations, and commercial flows of African retailers and restaurants. PayPecker is the definitive purpose-built vector for the growth of African retailers and restaurants. We even provide financing solutions, such as working capital and new outlet financing, to our proven customers!</p>
+            <div class="links">
+                <a href="#" class="glooPButton largeButton">Get Started</a>
+                <a href="#">Learn more -></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="links solutions" >
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms and conditions</a></li>
+                <li><a href="#">Press Kit</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li>(c) 2021, PayPecker (UK) Ltd</li>
+            </ul>
+        </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>

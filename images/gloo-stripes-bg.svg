@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="802" viewBox="0 0 1280 802">
+  <defs>
+    <linearGradient id="gloo-stripes-bg-a" x1="32.688%" x2="157.535%" y1="-5.152%" y2="81.225%">
+      <stop offset="0%" stop-color="#EEFAF4"/>
+      <stop offset="100%" stop-color="#A7CDA3"/>
+    </linearGradient>
+    <linearGradient id="gloo-stripes-bg-b" x1="51.482%" x2="79.757%" y1="13.429%" y2="280.732%">
+      <stop offset="0%" stop-color="#EEFAF4"/>
+      <stop offset="100%" stop-color="#A7CDA3"/>
+    </linearGradient>
+    <linearGradient id="gloo-stripes-bg-c" x1="-10.876%" x2="294.875%" y1="75.787%" y2="75.787%">
+      <stop offset="0%" stop-color="#EEFAF4"/>
+      <stop offset="100%" stop-color="#A7CDA3"/>
+    </linearGradient>
+    <linearGradient id="gloo-stripes-bg-d" x1="57.581%" x2="73.003%" y1="-71.059%" y2="182.028%">
+      <stop offset="0%" stop-color="#EEFAF4"/>
+      <stop offset="100%" stop-color="#A7CDA3"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="651" height="531" x="212" fill="url(#gloo-stripes-bg-a)"/>
+    <rect width="478" height="260" x="-266" fill="url(#gloo-stripes-bg-b)"/>
+    <path fill="url(#gloo-stripes-bg-c)" d="M1458.24935,681.635483 C732.716846,658.896958 256.450001,683.435536 29.4488169,755.251216 C25.6224626,756.461748 21.838548,757.711598 18.0970983,759 C11.9268681,755.754963 8.69505916,753.981851 8.69505916,753.981851 L-108,204.772869 L1494.62095,-136 C1494.62095,-136 1629.30046,344.457375 1458.24935,681.635483 Z"/>
+    <polygon fill="#CFE7D1" points="-187 536 466 537.203 426.009 722 -187 722" opacity=".343" transform="rotate(-12 139.5 629)"/>
+    <polygon fill="#E5EFE9" points="1187.89 95 1517 95 1517 281 1147 281" opacity=".249" transform="rotate(-12 1332 188)"/>
+    <polygon fill="url(#gloo-stripes-bg-d)" points="1186.89 285 1516 285 1516 471 1146 471" transform="rotate(-12 1331 378)"/>
+  </g>
+</svg>

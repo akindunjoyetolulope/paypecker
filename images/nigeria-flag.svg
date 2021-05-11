@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="18px" viewBox="0 0 24 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>69D7CA73-73E5-4F9D-83CD-A44EB8102F54</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M-0.000134622562,2.98781174 L-0.000134622562,13.2401156 C-0.000134622562,15.0031892 0.661016168,16.4678064 1.9832826,17.6339669 L21.4502347,17.6339669 C22.7725012,16.4678064 23.433652,15.0031892 23.433652,13.2401156 L23.433652,2.98781174 C23.433652,1.94129922 23.1720951,0.964888922 22.6487705,0.0585801556 L0.784746871,0.0585801556 C0.26142224,0.964888922 -0.000134622562,1.94129922 -0.000134622562,2.98781174 Z" id="path-1"></path>
+    </defs>
+    <g id="Mockups" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="homepage" transform="translate(-1169.000000, -35.000000)">
+            <g id="nigeria-flag" transform="translate(1169.000000, 35.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-389"></g>
+                <polygon id="Fill-388" fill="#FFFFFF" mask="url(#mask-2)" points="-0.000134622562 0.0585801556 23.43371 0.0585801556 23.43371 17.6339636 -0.000134622562 17.6339636"></polygon>
+                <path d="M15.6199878,0.0585801556 L23.43371,0.0585801556 L23.43371,17.6339636 L15.6199878,17.6339636 L15.6199878,0.0585801556 Z M-0.000134622562,0.0585801556 L7.80992639,0.0585801556 L7.80992639,17.6339636 L-0.000134622562,17.6339636 L-0.000134622562,0.0585801556 Z" id="Fill-390" fill="#008753" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

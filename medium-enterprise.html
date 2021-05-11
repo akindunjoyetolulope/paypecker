@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+    <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.min.css">
+    <link rel="stylesheet" href="styles/styles.min.css">
+    <title>Gloopro | Medium Entreprise</title>
+</head>
+<body>
+    <header>
+        <nav class="lflex">
+            <div class="brand">
+                <a href="/"><img src="images/glooproLogo.png" alt="Gloopro logo"></a>
+            </div>
+            <div class="links">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Solutions</a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-item">
+                                <a href="./large-enterprise.html">
+                                    <!-- <p>For Large Enterprises</p> -->
+                                    <p>Gloopro Integra</p>
+                                </a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="#">
+                                    <!-- <p>For Medium Enterprises</p> -->
+                                    <p>Gloopro Centra</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="./customers.html">Customers</a></li>
+                    <li><a href="./why-gloopro.html">Why Gloopro</a></li>
+                    <li><a href="#">Login</a></li>
+                    <!-- <li><a href="./pricing.html">Pricing</a></li> -->
+                </ul>
+                <a href="./pricing.html" class="glooPButton navButton">Get Started</a>
+                <img src="images/nigeria-flag.svg" alt="Nigeria flag">
+            </div>
+        </nav>
+        
+        <!-- Nav only visible on mobile and tablet devices - Begin here -->
+
+        <!-- Hamburger menu -->
+        <nav class="lxvflex">
+            <div class="brand">
+                <a href="/"><img src="images/glooproLogo.png" alt="Gloopro logo"></a>
+            </div>
+            <div class="menu-wrapper" onclick="openNav()">
+                <div class="menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Inside menu content -->
+        <div id="mobileNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <li id="solutionsSection" class="solutionsSection dropDown">
+                    <div id="solutions" class="collapseControl">
+                        <a role="button" data-toggle="collapse" data-target="#collapseSolution" aria-expanded="false" aria-controls="collapseSolution" class="collapsed">
+                            Solutions
+                        </a>
+                    </div>
+                    <div id="collapseSolution" class="collapse dropDownContent" aria-labelledby="collapseSolution" data-parent="#solutionsSection">
+                        <a href="./large-enterprise.html">Gloopro Integra</a>
+                        <a href="#">Gloopro Centra</a>
+                    </div>
+                </li>
+                <li><a href="./customers.html">Customers</a></li>
+                <li><a href="./why-gloopro.html">Why Gloopro</a></li>
+                <li><a href="#">Login</a></li>
+                <!-- <li><a href="./pricing.html">Pricing</a></li> -->
+                <li><a href="./pricing.html">Get Started</a></li>
+            </div>
+        </div>
+        <!-- Nav only visible on mobile and tablet devices - End here -->
+
+        <section class="hero">
+            <div class="left">
+                <div class="title">
+                    <p>Gloopro Centra</p>
+                </div>
+                <h1>Purchasing Automation  <br />for Medium Enterprises</h1>
+                <p>Gloopro Centra makes the buying process for mid-market enterprises easier, simpler, more transparent and much more enjoyable.</p>
+                <div class="links">
+                    <a href="./pricing.html" class="glooPButton largeButton">Get Started</a>
+                    <a href="#description">Learn More</a>
+                </div>
+                <p>5 minute setup. No credit card required</p>
+                <div class="brands">
+                    <h6 class="heading">Trusted by</h6>
+                    <div class="content">
+                        <div class="brand">
+                            <img src="images/brands/uber-logo.svg" alt="Uber">
+                        </div>
+                        <div class="brand">
+                            <img src="images/brands/axa-mansard-logo.svg" alt="Axa Mansard">
+                        </div>
+                        <div class="brand">
+                            <img src="images/brands/interswitch-logo.svg" alt="Interswith">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <img src="images/hero-image.png" alt="App preview">
+            </div>
+        </section>
+    </header>
+    <section id="description" class="description-mediumEnterprise">
+        <div class="top">
+            <img src="./images/wallet.png" alt="Wallet illustration">
+            <h2>Support complex purchasing functions</h2>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <p>Unlike large and multinational corporations who can afford the budget to support their complex, global purchasing needs, middle-market businesses need lower volume of goods and services and thus often lack the procurement infrastructure, strategy, budget and tools to support their increasingly complex purchasing function.</p>
+                <p>Gloopro Centra combines the key features of the procurement modules and work flows of the ERP systems used by these large enterprises with all the features of our <a href="#">Gloopro Integra</a> solution that they use, into an All-In-One-Box solution for our medium enterprise customers, without the complex aspects that add no incremental value to their businesses.</p>
+                <p>This means that everything from purchasing through approvals to payment is managed in a single system, eliminating the need to invest in ERP solutions for procurement whilst enjoying their benefits.</p>
+            </div>
+            <div class="right">
+                <img src="images/woman-grocery-shopping.svg" alt="Medium enterprises">
+            </div>
+        </div>
+    </section>
+    <section class="features-mediumEnterprise">
+        <div class="feature">
+            <img src="images/icons/growth-icon.svg" alt="Makes Buying Easy">
+            <h3>Makes Buying Easy</h3>
+            <p>Mid-market businesses require employees to wear many hats, including purchasing. Making the buying process as easy as possible allows staff to focus on their core responsibilities. Easy buying means easy-to-search-for products and a streamlined purchasing process.</p>
+        </div>
+        <div class="feature">
+            <img src="images/icons/growth-icon.svg" alt="Saves Money">
+            <h3>Saves Money</h3>
+            <p>Mid-market businesses, like all businesses, are looking for ways to stretch every dollar in savings so it can be focused on revenue-positive strategies. We use our vertical economics of scale to bring the same competitive prices afforded our large enterprises to our medium enterprise customers.</p>
+        </div>
+        <div class="feature">
+            <img src="images/icons/growth-icon.svg" alt="Makes Buying Enjoyable">
+            <h3>Makes Buying Enjoyable</h3>
+            <p>In medium enterprises, employee retention is critical. Creating a positive buying experience that makes buying easy can impact not only the level of adherence to the buying policies, but take the stress out of trying to buy with fiduciary focus.</p>
+        </div>
+    </section>
+    <div class="brandsSection">
+        <div class="hr-wrapper">
+            <div class="horizontal-rule-short"></div>
+        </div>
+        <div class="heading">
+            <p>
+                <span>These enterprises</span>
+                <span>are already finding their edge with Gloopro Centra</span>
+            </p>
+        </div>
+        <div class="brandList">
+            <div class="brand">
+                <img src="images/brands/grey/uber-logo-grey.svg" alt="Uber">
+            </div>
+            <div class="brand">
+                <img src="images/brands/grey/axa-mansard-logo-grey.svg" alt="Axa Mansard">
+            </div>
+            <div class="brand">
+                <img src="images/brands/grey/interswitch-logo-grey.svg" alt="Interswith">
+            </div>
+            <div class="brand">
+                <img src="images/brands/grey/cars45-logo-grey.svg" alt="Cars45.com">
+            </div>
+            <div class="brand">
+                <img src="images/brands/grey/cmb-logo-grey.svg" alt="Coronation">
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="links">
+                    <a href="./pricing.html" class="glooPButton">Get Started</a>
+                    <a href="./customers.html">More customers <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <p>5 minute setup. No credit card required</p>
+        </div>
+    </div>
+    <div class="horizontal-rule-short afterBS"></div>
+    <div class="certifications">
+        <h2 class="heading">Certifications</h2>
+        <div class="content">
+            <div class="certification">
+                <div class="certLogo">
+                    <img src="images/certifications/dun-bradstreet.png" alt="Dun & Bradstreet Certified">
+                </div>
+                <div class="content">
+                    <p>Dun & Bradstreet Certified</p>
+                </div>
+            </div>
+            <div class="certification">
+                <div class="certLogo">
+                    <img src="images/certifications/us-sam-certified.png" alt="US SAM Certified">
+                </div>
+                <div class="content">
+                    <p>US SAM Certified</p>
+                </div>
+            </div>
+            <div class="certification">
+                <div class="certLogo">
+                    <img src="images/certifications/gsa-certification.png" alt="US GSA Certification (WIP)">
+                </div>
+                <div class="content">
+                    <p>US GSA Certification (WIP)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="horizontal-rule-short afterBS"></div>
+    <div class="featured">
+        <h6 class="heading">Featured in</h6>
+        <div class="brandList">
+            <div class="brand">
+                <img src="images/press/cnn.svg" alt="CNN">
+            </div>
+            <div class="brand">
+                <img src="images/press/financial-times.svg" alt="Financial Times">
+            </div>
+            <div class="brand">
+                <img src="images/press/forbes.svg" alt="Forbes">
+            </div>
+            <div class="brand">
+                <img src="images/press/the-washington-post.svg" alt="The Washington Post">
+            </div>
+            <div class="brand">
+                <img src="images/press/the-economist.svg" alt="The Economist">
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="about">
+            <img src="images/gloopro-tagline-logo.svg" alt="Gloopro logo">
+            <p>Gloopro simplifies purchasing for large enterprises with eProcurement and commerce solutions.</p>
+            <p>&copy; 2019 PayMente Ltd. All rights reserved.</p>
+        </div>
+        <div class="links solutions">
+            <h6>Solutions</h6>
+            <ul>
+                <li><a href="./large-enterprise.html">Gloopro Integra</a></li>
+                <li><a href="./medium-enterprise.html">Gloopro Centra</a></li>
+                <li><a href="./partners.html">Partners</a></li>
+            </ul>
+        </div>
+        <div class="links company">
+            <h6>Company</h6>
+            <ul>
+                <li><a href="./about-us.html">About Us</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+                <li><a href="./contact-us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="links resources">
+            <h6>Resources</h6>
+            <ul>
+                <li><a href="./presskit.html">Press Kit</a></li>
+                <li><a href="./faqs.html">Common Questions</a></li>
+            </ul>
+        </div>
+        <div class="contact-us">
+            <h6>Contact us</h6>
+            <p>43B, Oyibo Adjarho Street, Lekki Phase 1</p>
+            <p class="telephone">0700 Gloo Pro</p>
+            <ul class="social-links">
+                <li class="social-icons twitter"><a href="#"></a></li>
+                <li class="social-icons linkedin"><a href="#"></a></li>
+                <li class="social-icons medium"><a href="#"></a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>

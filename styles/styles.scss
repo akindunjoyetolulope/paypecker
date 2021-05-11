@@ -1,0 +1,3189 @@
+@import "fonts";
+@import "variables";
+@import "mixins";
+@import "views-setup";
+@import "ui";
+
+// @import "@material/textfield/mdc-text-field";
+// @import "../node_modules/@material/select/helper-text/mdc-select-helper-text";
+
+// Mobile menu - Begins here
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.99);; 
+    overflow-x: hidden;
+    transition: 0.5s;
+
+    li {
+        list-style: none;
+
+        &.dropDown {
+            cursor: pointer;
+
+            a {
+                color: $glooBlue;
+
+                &:hover, &:focus {
+                    color: $glooBlue;
+                }
+            }
+
+            .collapseControl {
+                a {
+                    display: inline-block;
+
+                    &::after {
+                        content: '';   
+                        display: inline-block;   
+                        height: 10px;   
+                        width: 10px;    
+                        background-size: 10px;   
+                        background-image: url('../images/icons/chevron-down-blue.svg'); 
+                        background-repeat: no-repeat;   
+                        margin-left: -5px;
+                        background-position: center center;
+                        vertical-align: middle; 
+                    }
+
+                    &:hover {
+                        &::after {
+                            background-image: url('../images/icons/chevron-down-green.svg'); 
+                        }
+                    }
+
+                    &:not(.collapsed) {
+                        &::after {
+                            background-image: url('../images/icons/chevron-up-blue.svg'); 
+                        }
+
+                        &:hover {
+                            &::after {
+                                background-image: url('../images/icons/chevron-up-green.svg'); 
+                            }
+                        }
+                    }
+                }
+            }
+
+            .dropDownContent {
+                a {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    & a {
+        padding: 8px 0;
+        text-decoration: none;
+        font-size: 36px;
+        color: $glooBlue;
+        display: block;
+        transition: 0.3s;
+
+        &:hover, &:focus {
+            &:not(.closebtn):not(.glooPButton) {
+                color: $glooPrimary;
+            }
+        }
+    }
+
+    .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+    }
+}
+
+.overlay-content {
+    position: relative;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+}
+// Mobile menu - Ends here
+
+body {
+    display: grid;
+    color: $glooBlue;
+    font-family: "Vaud","Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    font-size: 16px;
+
+    > * {
+        padding-left: 6em;
+        padding-right: 6em;
+    }
+
+    a {
+        color: $glooPrimary;
+    }
+
+    header {
+        background: #F6F7F9 url('../images/gloo-stripes-bg.svg') no-repeat;
+        background-size: cover;
+        display: grid;
+        grid-template-rows: 1fr 5fr;
+        padding-bottom: 6rem;
+
+        &.single {
+            background-color: #FBFCFF;
+            padding-top: 2em;
+
+            &.careersHero {
+                padding-bottom: 0 !important;
+            }
+        }
+
+        &.pricingHead {
+            height: 20em;
+            padding-bottom: 25em;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .brand {
+                width: 20%;
+
+                a {
+                    img {
+                        height: 2.25em;
+                    }
+                }
+            }
+
+            .links {
+                flex: 1;
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                font-family: "Larsseit";
+
+                > * {
+                    display: flex;
+                    align-items: center;
+                    &:not(:last-child) {
+                        margin-right: 2rem;
+                    }
+                }
+
+                ul {
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        display: inline-block;
+
+                        &:hover {
+                            > a {
+                                text-decoration: none;
+                                color: $glooPrimary;
+                            }
+                        }
+
+                        &.activeLink {
+                            > a {
+                                color: $glooPrimary;
+                            }
+                        }
+
+                        &:not(:last-child) {
+                            margin-right: 3em;
+                        }
+
+                        &.dropdown {
+                            .dropdown-menu {
+                                box-shadow: 0px 8px 16px 0px rgba(53, 133, 49, 0.2);
+                                border-radius: 5px;
+                                border: 0;
+
+                                > * {
+                                    padding: 1.5em;
+                                    padding-right: 3em;
+                                    cursor: pointer;
+
+                                    &:active, &:hover {
+                                        background: $glooPrimary;
+                                        a {
+                                            color: #FFFFFF;
+                                        }
+                                    }
+
+                                    &:last-child {
+                                        padding-top: .75em;
+                                    }
+
+                                    &:not(:last-child) {
+                                        margin-right: 0;
+                                        padding-bottom: .75em;
+                                        border-bottom: 2px solid $glooGray;
+                                    }
+
+                                    p {
+                                        margin-bottom: 0;
+
+                                        &:first-child {
+                                            // text-transform: uppercase;
+                                            font-size: .7em;
+                                        }
+
+                                        &:last-child {
+                                            font-size: 1.25em;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        a {
+                            font-family: "Larsseit";
+                            color: $glooBlue;
+                        }
+                    }
+                }
+            }
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2em;
+            margin-top: 2em;
+
+            // Why Gloopro, Careers hero - Begin here
+            &.single {
+                display: flex;
+                flex-direction: column;
+                height: 45vh;
+                align-items: center;
+                justify-content: center;
+
+                .content {
+                    width: 60%;
+                    text-align: center;
+                    background: url('../images/dotsBackground.png') center center no-repeat;
+                    background-size: cover;
+                    
+                    h1 {
+                        color: $glooBlue;
+                        font-family: "Larsseit-Bold";
+                        font-size: 3em;
+                        background-image: url('../images/dotsBackground.png') top right no-repeat;
+                    }
+
+                    p {
+                        font-size: 1.35em;
+                        padding: 0 3em; 
+                    }
+
+                    a {
+                        font-size: 1.35em;
+                        color: $glooPrimary;
+                    }
+                }
+            }
+            // Why Gloopro hero - Begin here
+
+            > * {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .left {
+                .title {
+                    p {
+                        display: none;
+                        font-family: "Larsseit-Medium";
+                        font-size: 1em;
+                        display: inline-block;
+                        text-transform: uppercase;
+                        padding: .25em .75em;
+                        color: $glooBlue;
+                        background: rgba(79, 146, 33, 0.20000000298023224);
+                        border-radius: .25em;
+                    }
+                }
+                h1 {
+                    font-family: "Larsseit-Bold";
+                    color: $glooBlue;
+                    font-size: 3em;
+                }
+
+                > p {
+                    &:last-of-type {
+                        font-size: .9em;
+                    }
+                }
+
+                .links {
+                    margin-top: 1em;
+                    margin-bottom: 2em;
+
+                    > * {
+                        &:first-child {
+                            margin-right: 1.5em;
+                        }
+                    }
+
+                    a {
+                        color: $glooPrimary;
+                    }
+                }
+
+                .brands {
+                    &.largeEnterprises {
+                        .content {
+                            align-items: center;
+
+                            .brand {
+                                &.britishTobacco {
+                                    img {
+                                        height: 45px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .heading {
+                        text-transform: uppercase;
+                        font-size: .9em;
+                        color: $glooBlue;
+                        margin-bottom: .9em;
+                    }
+
+                    .content {
+                        display: flex;
+                        flex-direction: row;
+
+                        .brand {
+                            &:not(:last-child) {
+                                margin-right: .9em;
+                            }
+
+                            img {
+                                height: 1.5em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right {
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .description {
+        display: grid;
+        background: #f4f7f9;
+        // background: #F6F8FD url('../images/gloo-stripes-bg.svg') no-repeat;
+        padding-top: 3em;
+        padding-bottom: 3em;
+
+        .top {
+            margin-bottom: 1.25em;
+
+            h2 {
+                color: $glooBlue;
+                font-size: 2.5em;
+                font-family: "Larsseit-Medium";
+            }
+
+            p {
+                font-size: 1.5em;
+            }
+        }
+
+        .bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            // grid-template-areas: "left right";
+            align-items: center;
+            grid-gap: 3em;
+
+            .left {
+                // grid-area: left;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .right {
+                // grid-area: right;
+                font-size: 1.25em;
+
+                p {
+                    &:first-child {
+                        color: $glooBlue;
+                        font-family: "Larsseit-Medium";
+                    }
+                }
+            }
+        }
+    }
+
+    .features {
+        display: grid;
+        background: #FBFCFF;
+        padding: 6em;
+        
+        .heading {
+            color: $glooBlue;
+            margin-bottom: 1em;
+            font-family: "Larsseit-Bold";
+            font-size: 3em;
+        }
+
+        .body {
+            margin-bottom: 3em;
+
+            > * {
+                &:not(:last-child) {
+                    margin-bottom: 50px;
+                }
+            }
+
+            > * {
+                &:nth-child(even) {
+                    > .image {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                    }
+                }
+            }
+
+            .feature {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 3em;
+                align-items: center;
+
+                .content {
+                    .image {
+                        margin-bottom: 1em;
+                    }
+                    
+                    h3 {
+                        color: $glooBlue;
+                        font-family: "Larsseit-Medium";
+                        font-size: 2.5em;
+                    }
+
+                     p {
+                         font-size: 1.5em;
+                     }
+                }
+
+                > .image {
+                    img {
+                        width: 60%;
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            a {
+                padding: 10px 60px;
+            }
+        }
+    }
+
+    .testimonial {
+        background: #F6F8FD;
+        padding: 6em;
+        display: grid;
+        font-size: .9em;
+
+        .heading {
+            color: $glooBlue;
+            margin-bottom: 1em;
+            font-family: "Larsseit-Medium";
+            font-size: 3em;
+        }
+
+        .testimonial-body {
+            // display: grid;
+            // grid-template-columns: repeat(3, 1fr);
+            // grid-gap: 1em;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 2em;
+
+            > * {
+                &:not(:last-child) {
+                    margin-right: 1.5em;
+                }
+            }
+
+            .testimony {
+                padding: 2em;
+
+                > * {
+                    &:not(:last-child) {
+                        margin-bottom: 1.25em;
+                    }
+                }
+
+                .brandLogo {
+                    img {
+                        max-height: 1.5em;
+                    }
+                }
+                
+                .bottom {
+                    display: flex;
+                    align-items: center;
+
+                    .image {
+                        height: 3.5em;
+                        width: 3.5em;
+                        margin-right: 1em;
+                        border-radius: 50%;
+
+                        &.tobi {
+                            background: url('../images/tobi.png') no-repeat;
+                            background-size: contain;
+                        }
+
+                        &.onah {
+                            background: url('../images/onah.png') no-repeat;
+                            background-size: contain;
+                        }
+                    }
+
+                    .profileDetail {
+                        p {
+                            margin-bottom: 0;
+
+                            &:first-child {
+                                font-size: 1.35em;
+                            }
+
+                            &:last-child {
+                                font-size: .9em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(5, 5em);
+            grid-gap: .5em;
+            
+            .control {
+                height: .5em;
+                background: #CAD4D9;
+
+                &.active {
+                    background: #277D3F;
+                }
+            }
+        }
+    }
+
+    .brandsSection {
+        padding: 6em;
+        padding-top: 0;
+        background: #F6F8FD;
+        background-image: linear-gradient(180deg, #F6F8FD 0%, #FFFFFF 100%);
+        display: flex;
+        flex-direction: column;
+
+        > * {
+            &:not(:last-child) {
+                margin-bottom: 1em;
+            }
+        }
+
+        .hr-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3em;
+        }
+
+        .horizontal-rule-short {
+            width: 80%;
+        }
+
+        .heading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+
+                span {
+                    &:first-child {
+                        text-transform: uppercase;
+                        color: $glooBlue;
+                        font-family: "Larsseit-Medium";
+                        font-size: 1.75em;
+                    }
+
+                    &:last-child {
+                        font-size: 1.25em;
+                    }
+                }
+            }
+        }
+
+        .brandList {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5em;
+
+            > * {
+                &:not(:last-child) {
+                    margin-right: 4em;
+                }
+            }
+
+            .brand {
+                img {
+                    // max-width: 7em;
+                }
+            }
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .links {
+                margin-bottom: 1em;
+
+                > * {
+                    &:first-child {
+                        margin-right: 2em;
+                    }
+                }
+
+                a {
+                    &.glooPButton {
+                        padding: 10px 60px;
+                    }
+                    
+                    color: $glooPrimary;
+                    font-family: "Larsseit-Medium";
+                }
+            }
+
+            p {
+                &:last-child {
+                    color: #444971;
+                    font-size: .8em;
+                }
+            }
+        }
+    }
+
+    .afterBS {
+        background: #F6F9FC;
+        margin-bottom: 3em;
+    }
+
+    .certifications {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 6em;
+
+        &.customersCertifcation, &.careersCertifcation, &.pricingCertifcation, &.presskitCertifcation {
+            margin-top: 6em;
+        }
+
+
+        .heading {
+            text-align: center;
+            font-family: "Larsseit-Bold";
+            font-size: 2.5em;
+            color: $glooBlue;
+            margin-bottom: 2em;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            > * {
+                &:not(:last-child) {
+                    margin-right: 3em;
+                }
+            }
+
+            .certification {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .certLogo {
+                    height: 5em;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+
+                    img {
+                        max-height: 5em;
+                        max-width: 10em;
+                        margin-bottom: 1.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    .featured {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 6em;
+        padding-top: 2em;
+
+        &.presskitFeatured {
+            padding-top: 6em;
+        }
+        
+        > * {
+            &:first-child {
+                margin-right: 3em;
+            }
+        }
+        
+        .heading {
+            font-family: "Larsseit-Medium";
+            text-transform: uppercase;
+            color: #586F7F;
+        }
+
+        .brandList {
+            display: flex;
+            flex-direction: row;
+
+            > * {
+                &:not(:last-child) {
+                    margin-right: 3em;
+                }
+            }
+
+            .brand {
+                img {
+                    max-width: 10em;
+                }
+            }
+        }
+    }
+
+    footer {
+        background: #F6F8FD;
+        color: #53627C;
+        padding: 3em 6em;
+        display: grid;
+        grid-template-columns: 1.5fr repeat(4, 1fr);
+        grid-gap: 2em;
+
+        h6 {
+            // text-transform: uppercase;
+            color: $glooBlue;
+            font-family: "Larsseit-Medium";
+            font-size: 1.25em;
+            margin-bottom: 1em;
+        }
+
+        ul {
+            padding: 0;
+            
+            li {
+                list-style-type: none;
+            }
+        }
+
+        .about {
+            img {
+                margin-bottom: 1em;
+            }
+
+            p {
+                &:first-of-type {
+                    font-size: .8em;
+                }
+
+                &:nth-of-type(2) {
+                    font-size: .8em;
+                }
+            }
+        }
+
+        .links {
+            ul {
+                li {
+                    margin-bottom: .8em;
+                    font-size: 1em;
+
+                    a {
+                        color: #53627C;
+                    }
+                }
+            }
+        }
+
+        .contact-us {
+            p {
+                font-size: 1em;
+
+                &.telephone {
+                    text-transform: uppercase;
+                }
+            }
+
+            .social-links {
+                display: flex;
+                flex-direction: row;
+
+                > * {
+                    &:not(:last-child) {
+                        margin-right: 2em;
+                    }
+                }
+
+                .social-icons {
+                    width: 20px;
+                    height: 20px;
+                    background: $glooBlack;
+                    cursor: pointer;
+
+                    &.twitter {
+                        background: url('../images/icons/twitter.svg') center bottom no-repeat;
+                    }
+
+                    &.linkedin {
+                        background: url('../images/icons/linkedin.svg') center bottom no-repeat;
+                    }
+
+                    &.medium {
+                        background: url('../images/icons/medium.svg') center bottom no-repeat;
+                    }
+                }
+            }
+        }
+    }
+
+    // Medium Enterprises
+    .description-mediumEnterprise {
+        background: #f4f7f9;
+        // background: #F6F8FD url('../images/gloo-stripes-bg.svg') no-repeat;
+        padding-top: 3em;
+        padding-bottom: 3em;
+
+        .top {
+            text-align: center;
+            margin-bottom: 2em;
+
+            img {
+                width: 80px;
+                margin-bottom: 30px;
+            }
+
+            h2 {
+                font-family: "Larsseit-Medium";
+                font-size: 2.5em;
+                color: $glooBlue;
+            }
+        }
+
+        .bottom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2em;
+            align-items: center;
+
+            .left {
+                h3 {
+                    font-family: "Larsseit-Bold";
+                    font-size: 1.5em;
+                    color: $glooBlue;
+                    margin-bottom: 1em;
+                }
+    
+                p {
+                    font-size: 1.2em;
+                }
+            }
+    
+            .right {
+                img {
+                    height: 25em;
+                }
+            }
+        }
+    }
+
+    .features-mediumEnterprise {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3em;
+        background: #FBFCFF;
+        padding: 6em;
+
+        .feature {
+            img {
+                margin-bottom: 1em;
+            }
+
+            h3 {
+                color: $glooBlue;
+                font-size: 1.5em;
+                font-family: "Larsseit-Bold";
+                margin-bottom: 1rem;
+            }
+
+            p {
+                margin-bottom: 0;
+                font-size: 1.1em;
+            }
+        }
+    }
+
+    // Large Enterprises
+    .description-largeEnterprise {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5em;
+        padding: 6em;
+        background: #F6F7F9;
+
+        > * {
+            h2 {
+                font-family: "Larsseit";
+                font-size: 2.75em;
+                color: $glooBlue;
+            }
+
+            p {
+                font-size: 1.5em;
+            }
+
+            ul {
+                padding: 0;
+
+                li {
+                    font-size: 1.25em;
+                    list-style: none;
+                    display: grid;
+                    grid-template-columns: 1fr 7fr;
+
+                    &:not(:last-child) {
+                        margin-bottom: 1em;
+                    }
+
+                    span { 
+                        &:first-child { 
+                            height: 1.5em;   
+                            width: 1.5em;    
+                            background-size: 1.5em;   
+                            background-image: url('../images/gg1.svg'); 
+                            background-repeat: no-repeat;   
+                            margin-right: 10px;
+                            background-position: center center;
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+
+            &:first-child {
+                padding-right: 5em;
+                border-right: 1px solid #D8D8D8;
+            }
+        }
+    }
+
+    .erpIntegration {
+        background: #FBFCFF;
+        padding: 6em;
+
+        .top {
+            width: 65%;
+
+            h2 {
+                font-family: "Larsseit-Medium";
+                color: $glooBlue;
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 1.6em;
+            }
+        }
+
+        .brands {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+
+            > * {
+                &:not(:last-child) {
+                    margin-right: 3em;
+                }
+            }
+        }
+    }
+
+    .procurementSimplified {
+        padding: 6em;
+
+        .top {
+            margin-bottom: 2em;
+
+            h2 {
+                font-family: "Larsseit-Medium";
+                color: $glooBlue;
+                font-size: 2.5em;
+            }
+        }
+
+        .bottom {
+            display: grid;
+            grid-gap: 3em;
+            grid-template-columns: 1fr 2fr;
+
+            .left {
+                ul {
+                    padding: 0;
+
+                    li {
+                        list-style: none;
+                        cursor: pointer;
+
+                        &.content {
+                            border-bottom: 2px solid $glooGray;
+        
+                            &:not(:last-child) {
+                                margin-bottom: 1em;
+                            }
+        
+                            h3 {
+                                font-family: "Larsseit-Medium";
+                                color: $glooBlue;
+                                font-size: 1.75em;
+                            }
+                            
+                            &:hover, &.activeSection {
+                                h3 {
+                                    color: $glooPrimary;
+        
+                                    &::before {
+                                        content: url(../images/icons/right-chevron.svg);
+                                        display: inline-block;
+                                        margin-right: 5px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Careers
+    .gallery {
+        padding: 0;
+        background: #FFFFFF;
+
+        > * {
+            display: grid;
+            grid-gap: .4em;
+            margin-left: .4em;
+            margin-right: .4em;
+
+            > * {
+                height: 17em;
+            }
+        }
+
+        .top {
+            grid-template-columns: 2fr 1.5fr 2fr;
+            margin-top: .4em;
+            margin-bottom: .4em;
+
+            > * {
+                &:first-child {
+                    background: url("../images/team/team-1.jpg") center no-repeat;
+                    background-size: cover;
+                }
+
+                &:nth-child(2) {
+                    background: url("../images/team/team-2.jpg") center no-repeat;
+                    background-size: cover;
+                }
+
+                &:nth-child(3) {
+                    background: url("../images/team/team-3.jpg") center no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+
+        .bottom {
+            grid-template-columns: 1.5fr repeat(2, 2fr);
+            margin-bottom: .4em;
+
+            > * {
+                &:first-child {
+                    background: url("../images/team/team-4.jpg") center no-repeat;
+                    background-size: cover;
+                }
+
+                &:nth-child(2) {
+                    background: url("../images/team/team-5.jpg") center center no-repeat;
+                    background-size: cover;
+                }
+
+                &:nth-child(3) {
+                    background: url("../images/team/team-6.jpg") center center no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+
+    .description-careers {
+        background: #FBFCFF;
+        // background: #F6F8FD url('../images/gloo-stripes-bg.svg') no-repeat;
+        padding: 6em 20em;
+        text-align: center;
+
+        h3, h4 {
+            color: $glooBlue;
+            font-family: "Larsseit-Bold";
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 3.25em;
+        }
+
+        h4 {
+            padding-left: .8em;
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+    }
+
+    .job-openings {
+        background: #F4F7F9;
+        padding: 6em;
+
+        .heading {
+            font-size: 3.25em;
+            font-family: "Larsseit-Bold";
+            color: $glooBlue;
+            margin-bottom: 1em;
+        }
+
+        .content {
+            .job {
+                padding: 1.5em 0;
+                border-bottom: .15em solid #E1E4E8;
+
+                > * {
+                    > * {
+                        display: flex;
+                        flex-direction: row;
+    
+                        > * {
+                            &:last-child {
+                                flex-grow: 1;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+    
+                .collapseControl {
+                    > * {
+                        cursor: pointer;
+                        color: $glooBlue;
+
+                        &.collapsed {
+                            > * {
+                                margin-bottom: 0;
+                            }
+                        }
+    
+                        &:not(.collapsed) {
+                            color: $glooPrimary;
+
+                            p {
+                                &::after {  
+                                    background-image: url('../images/icons/up-chevron.svg'); 
+                                }
+                            }
+                        }
+    
+                        h4 {
+                            font-family: "Larsseit-Medium";
+                        }
+    
+                        p {
+                            color: $glooBlue;
+    
+                            &::after {
+                                content: '';   
+                                display: inline-block;   
+                                height: .8em;   
+                                width: .8em;    
+                                background-size: .8em;   
+                                background-image: url('../images/icons/down-chevron.svg'); 
+                                background-repeat: no-repeat;   
+                                margin-left: .5em;
+                                background-position: center center;
+                                vertical-align: middle;
+                            }
+                        }
+                    }
+                }
+    
+                .collapseContent {
+                    p {
+                        margin-bottom: 0;
+
+                        &:first-child {
+                            color: $glooPrimary;
+                        }
+    
+                        &:not(:first-child) {
+                            color: $glooBlue;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // FAQs
+    .faqs {
+        background: #F4F7F9;
+        padding: 6em;
+
+        .faqs-section {
+            display: grid;
+            grid-template-columns: 1fr 7fr;
+            grid-gap: 5em;
+            
+            &:not(:last-child) {
+                border-bottom: .15em solid #E1E4E8;
+                margin-bottom: 2em;
+            }
+
+            .heading {
+                text-align: right;
+                color: $glooBlue;
+                font-family: "Larsseit-Medium";
+                font-size: 2.5em;
+            }
+
+            .content {
+                .question-container {
+                    margin-bottom: 2em;
+
+                    .question {
+                        p {
+                            color: $glooPrimary;
+                            font-family: "Larsseit-Medium";
+                            font-size: 1.25em;
+                            margin-bottom: .5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Contact us
+    .contactAndForm {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 6em;
+        padding: 3em 6em;
+        background: #F4F7F9;
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: none;
+        }
+
+        .left {
+            background: #FFFFFF;
+            box-shadow: 0 18px 18px 0 rgba(10, 31, 68, 0.12), 0 0 1px 0 rgba(10, 31, 68, 0.1);
+            padding: 2em;
+
+            h5 {
+                font-family: "Larsseit-Medium";
+                font-size: 1.5em;
+                color: $glooBlue;
+            }
+
+            p {
+                font-size: 1.15em;
+            }
+
+            // Temp CSS
+            // .field-wrapper{
+            //     position: relative;
+            //     margin-bottom: 15px;
+
+            //     input{
+            //         border: 1px solid #DADCE0;
+            //         padding: 15px;
+            //         border-radius: 4px;
+            //         width: 100%;
+
+            //         &:not([disabled]):focus~.field-placeholder {
+            //             color: $glooPrimary;
+            //         }
+            //     }
+
+            //     .field-placeholder{
+            //         font-size: 16px;
+            //         position: absolute;
+            //         bottom: 17px;
+            //         -webkit-box-sizing: border-box;
+            //         box-sizing: border-box;
+            //         color: #80868b;
+            //         left: 8px;
+            //         padding: 0 8px;
+            //         -webkit-transition: transform 150ms cubic-bezier(0.4,0,0.2,1),opacity 150ms cubic-bezier(0.4,0,0.2,1);
+            //         transition: transform 150ms cubic-bezier(0.4,0,0.2,1),opacity 150ms cubic-bezier(0.4,0,0.2,1);
+            //         z-index: 1;
+                
+            //         text-align: left;
+            //         width: 100%;
+
+            //         span{
+            //             background: #ffffff;
+            //             padding: 0px 8px;
+            //         }
+            //     } 
+            // }
+            
+            // .field-wrapper, .field-wrapper.hasValue {
+            //     input {
+            //         &:not([disabled]):focus~.field-placeholder {
+            //             -webkit-transform: scale(.75) translateY(-39px) translateX(-60px);
+            //             transform: scale(.75) translateY(-39px) translateX(-60px);
+            //         }
+            //     }
+            // }
+
+            // .form-button{
+            //     text-align: right;
+            // }
+        }
+
+        .right {
+            align-self: center;
+
+            p {
+                color: $glooBlue;
+
+                &:first-child {
+                    font-family: "Larsseit-Medium";
+                    font-size: 1.5em;
+                    margin-bottom: 10px;
+                }
+
+                a {
+                    color: $glooPrimary;
+                }
+            }
+        }
+    }
+
+    // Pricing
+    .pricing {
+        padding-top: 3em;
+        padding-bottom: 6em;
+        background: #F5F9FC;
+
+        .pricingTable {
+            .pricingHead {
+                .priceTitle {
+                    #priceRange {
+                        background: #F5F9FC;
+                    }
+                }
+            }
+
+            .pricingBody, .pricingHead {
+                display: grid;
+                grid-template-columns: 1.25fr repeat(4, 1fr);
+
+                > * {
+                    > * {
+                        height: 3.5em;
+                    }
+
+                    .pTableHead {
+                        height: 10em;
+                        padding: 1em;
+                    }
+
+                    .yearlyPrice, .monthlyPrice {
+                        height: 4em;
+                    }
+
+                    .cashBack {
+                        h4 {
+                            span {
+                                &.info {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+
+                    &:first-child {
+                        p, h4 {
+                            font-size: 1.1em;
+                        }
+
+                        > * {
+                            padding-left: 3em;
+
+                            > * {
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+                            }
+
+                            &:not(.pTableHead) {
+                                background: #E8F0F7;
+                                padding: 1em;
+                                padding-left: 2em;
+                                box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, .15);
+
+                                p, h4 {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+
+                        .pTableHead {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+
+                            .radioGroup {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                font-size: 1.1em;
+
+                                input[type="radio"] {
+                                    border: 0px;
+                                    width: 10%;
+                                    height: 1em;
+                                    margin-right: 5px;
+                                    color: $glooPrimary;
+                                }
+
+                                label {
+                                    margin-bottom: 0;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .featuresHead {
+                            h4 {
+                                text-transform: uppercase;
+                                font-size: 1em;
+                                font-family: "Larsseit-Medium";
+                            }
+                        }
+                    }
+
+                    &:not(:first-child) {
+                        background: #F0F6FE;
+                        background-image: linear-gradient(-180deg, #F0F6FE, #ffffff);
+                        box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, .15);
+
+                        > * {
+                            &:not(.pTableHead) {
+                                background: #FFFFFF;
+                                border-top: 1px solid rgba(0, 0, 0, .05);
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                p {
+                                    // font-weight: 600;
+                                }
+                            }
+                        }
+
+                        .pTableHead {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            // height: 3em;
+                            // height: 100px;
+
+                            h4 {
+                                font-family: "Larsseit-Medium";
+                                font-size: 1.75em;
+                                color: $glooPrimary;
+                                margin-bottom: .5em;
+                            }
+
+                            button {
+                                padding: .5em 1em;
+                                width: auto;
+                                margin-bottom: .25em;
+                            }
+
+                            p {
+                                color: $glooBlue;
+                            }
+                        }
+
+                        .yearlyPrice, .monthlyPrice {
+                            // padding: .5em;
+                            background: #FFFFFF;
+                            border-top-left-radius: .5em;
+                            border-top-right-radius: .5em;
+                            text-align: center;
+                            
+                            > * {
+                                display: inline-block;
+                                margin-bottom: 0;
+                            }
+
+                            p {
+                                font-family: "Larsseit-Medium";
+                                font-size: 2.5em;
+                                color: $glooBlue;
+
+                                sup, sub {
+                                    font-size: .35em;
+                                    vertical-align: baseline;
+                                    position: relative;
+                                    top: -1em;
+                                }
+
+                                sub {
+                                    top: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .locations, .systemUsers {
+                        font-weight: 600;
+                    }
+                }
+
+                .titles {
+                    #priceRange {
+                        background: #F5F9FC;
+                    }
+                }
+
+                // .premium {
+                //     margin-top: -10px;
+                //     margin-bottom: -30px;
+                //     z-index: 2;
+
+                //     .pTableHead {
+                //         margin-top: 10px;
+                //     }
+
+                //     .systemUsers {
+                //         // margin-bottom: 10px;
+                //     }
+                // }
+            }
+        }
+    }
+
+    // Customers
+    .customers {
+        padding: 6em;
+        background: #F5F9FC;
+        
+        h2 {
+            &.sectionTitle {
+                text-align: center;
+                color: $glooBlue;
+                font-family: "Larsseit-Medium";
+                font-size: 2.5em;
+                margin-bottom: 1.5em;
+            }
+        }
+
+        .brands {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 1.5em;
+
+            .customer {
+                padding: 2em;
+                
+                .image {
+                    height: 3em;
+                    margin-bottom: 1em; 
+
+                    img {
+                        max-width: 12em;
+                        max-height: 4em;
+                    }
+                }
+            }
+        }
+    }
+
+    .cta-customers {
+        padding: 6em;
+        padding-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #F5F9FC;
+
+        .button {
+            a {
+                padding: 17px 80px;
+            }
+        }
+    }
+
+    // Press Kit
+    .description-presskit {
+        background: #FBFCFF;
+        padding: 6em;
+        padding-bottom: 3em;
+
+        .sectionTitle {
+            font-family: "Larsseit-Medium";
+            font-size: 2.5em;
+            color: $glooBlue;
+            margin-bottom: 1em;
+        }
+
+        .descriptionGroup {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-gap: 10em;
+
+            > * {
+                h4 {
+                    color: $glooBlue;
+                    font-family: "Larsseit-Medium";
+                    font-size: 1.1em;
+                }
+
+                p {
+                    font-size: 1.25em;
+                }
+            }
+        }
+    }
+
+    .assets {
+        padding: 6em;
+        padding-top: 3em;
+        background: #FBFCFF;
+
+        .sectionTitle {
+            font-family: "Larsseit-Medium";
+            font-size: 2.5em;
+            color: $glooBlue;
+            margin-bottom: 1em;
+        }
+
+        .body {
+            display: grid;
+            grid-template-columns: 1fr; 
+            grid-gap: 1em;
+            
+            > * {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-gap: 10em;
+
+                .left {
+                    h4 {
+                         color: $glooBlue;
+                         font-family: "Larsseit-Medium";
+                         font-size: 1.1em;
+                    }
+
+                    p {
+                        font-size: 1.25em;
+                    }
+                }
+
+                .right {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 2em;
+
+                    .logo {
+                        .image {
+                            height: 8.5em;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-bottom: 1em;
+    
+                            &.light {
+                                background: #EEEEEE;
+                            }
+    
+                            &.dark {
+                                background: #3B862F;
+                            }
+    
+                            img {
+                                height: 2.75em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // About Us
+    .description-about-us {
+        padding: 6em;
+        background: #FBFCFF;
+
+        > * {
+            &:not(:last-child) {
+                margin-bottom: 4em;
+            }
+
+            &:not(.ourValues):not(.glootianCreed) {
+                .content {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 6em;
+    
+                    .text {
+                        p {
+                            &:first-of-type {
+                                font-family: "Larsseit-Bold";
+                                color: $glooBlue;
+                                font-size: 1.65em;
+                            }
+    
+                            &:not(:first-of-type) {
+                                font-size: 1.25em;
+                            }
+                        }
+                    }
+    
+                    .image {
+                        img {
+                            max-width: 400px;
+                        }
+                    }
+                }
+            }
+
+            .sectionTitle {
+                font-family: "Larsseit-Medium";
+                font-size: 2.5em;
+                color: $glooBlue;
+            }
+        }
+
+        .ourVision {
+            .content {
+                .text {
+                    order: 2;
+                }
+                
+                .image {
+                    order: 1;
+                }
+            }
+        }
+
+        .glootianCreed{
+            .content {
+                > p {
+                    color: $glooBlue;
+                    font-family: "Larsseit-Bold";
+                    font-size: 1.5em;
+                    width: 55%;
+                    margin-bottom: 1em;
+                }
+            }
+        }
+
+        .ourValues {
+            .sectionTitle {
+                margin-bottom: 1em;
+            }
+
+            .content {
+                .values {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 4em;
+                    grid-row-gap: 3em;
+
+                    .value {
+                        img {
+                            margin-bottom: 1em;
+                        }
+
+                        h6 {
+                            color: $glooBlue;
+                            font-weight: 600;
+                            font-size: 1.25em;
+                            margin-bottom: 0;
+                        }
+
+                        p {
+                            font-size: 1.25em;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .ourInvestors {
+        padding: 6em;
+        background: #F6F8FD;
+
+        .sectionTitle {
+            font-family: "Larsseit-Medium";
+            font-size: 2.5em;
+            color: $glooBlue;
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
+        .investors {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            .investor {
+                width: 20em;
+                height: 15em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                &:not(:last-child) {
+                    border-right: 1px solid #ECEEF9;
+                }
+                
+                .image {
+                    height: 6em;
+
+                    img {
+                        max-height: 4em;
+                    }
+                }
+
+                p {
+                    font-size: 1.15em;
+                    font-weight: 600;
+                    color: $glooBlue;
+                }
+            }
+        }
+    }
+
+    .pressSection {
+        padding: 6em;
+
+        .sectionTitle {
+            font-family: "Larsseit-Medium";
+            font-size: 2.5em;
+            color: $glooBlue;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        .pressGroup {   
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 1em;
+
+            a {
+                color: $glooBlack;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $glooBlack;
+                }
+
+                .press {
+                    padding: 1.5em;
+                    border-radius: 5px;
+
+                    .image {
+                        margin-bottom: 1em;
+
+                        img {
+                            max-width: 170px;
+                            max-height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .pressLogos {
+            display: flex;
+            flex-direction: row;
+            // align-items: center;
+            justify-content: center;
+            
+            > * {
+                &:not(:last-child) {
+                    margin-right: 30px;
+                }
+            }
+
+            .pressLogo {
+                .logo {
+                    img {
+                        height: 30px;
+                    }
+                }
+            }
+        }
+    }
+
+    .cta {
+        background: #F6F8FD;
+        padding: 6em;
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        align-items: center;
+
+        .left {
+            p {
+                &:first-child {
+                    font-size: 2.25em;
+                    font-weight: 600;
+                    color: $glooBlue;
+                    margin-bottom: 0;
+                }
+
+                &:not(:first-child) {
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}
+
+// Small devices
+@include breakpoint(phabletNTablet) {
+    body {
+        font-size: 12px;
+
+        > * {
+            padding-left: 4em;
+            padding-right: 4em;
+        }
+
+        header {
+            .hero {
+                .left {
+                    h1 {
+                        font-size: 2em;
+                    }
+                }
+            }
+        }
+
+        .description {
+            .top {
+                h2 {
+                    font-size: 2em;
+                }
+            }
+        }
+
+        .testimonial {
+            .heading {
+                font-size: 2em;
+            }
+        }
+
+        .brandsSection {
+            .brandList {
+                .brand {
+                    img {
+                        width: 6em;
+                    }
+                }
+            }
+        }
+
+        .featured {
+
+            > * {
+                &:first-child {
+                    margin-right: 2em;
+                }
+            }
+
+            .brandList {
+                .brand {
+                    // width: calc(100% * (1/5));
+                    &:not(:last-child) {
+                        margin-right: 2em;
+                    }
+
+                    img {
+                        max-width: 5.5em;
+                        // width: 100%;
+                    }
+                }
+            }
+        }
+
+        footer {
+            grid-template-columns: repeat(5, 1fr);
+
+            .about {
+                img {
+                    width: 8em;
+                }
+            }
+        }
+
+        // Careers
+        .description-careers {
+            padding: 6em 10em;
+        }
+
+        // Customers
+        .customers {
+            .brands {
+                grid-template-columns: repeat(3, 1fr);
+                .customer {
+                    .image {
+                        height: 1em;
+
+                        img {
+                            max-width: 6em;
+                            max-height: 1.5em;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Large Enterprises
+        .description-largeEnterprise {
+            padding: 3em 4em;
+            grid-gap: 3em;
+            padding: 3em;
+
+            > * {
+                p {
+                    font-size: 1.25em;
+                }
+
+                ul {
+                    li {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+
+        .erpIntegration {
+            .top {
+                width: 100%;
+            }
+
+            .brands {
+                img {
+                    max-height: 2.5em;
+
+                    &:not(:last-child) {
+                        margin-right: 1em;
+                    }
+                }
+            }
+        }
+
+        .procurementSimplified {
+            .bottom {
+                grid-template-columns: 1fr;
+
+                .left {
+                    order: 2;
+                }
+
+                .right {
+                    order: 1;
+
+                    img {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+
+        // Contact us
+        .contactAndForm {
+            grid-template-columns: 1fr;
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        // About us
+        .description-about-us {
+            > * {
+                &:not(.ourValues):not(.glootianCreed) {
+                    .content {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+
+                        .image {
+                            img {
+                                max-width: 200px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ourStory {
+                .content {
+                    .text {
+                        margin-right: 50px;
+                    }
+                }
+            }
+    
+            .ourVision {
+                .content {
+                    .image {
+                        margin-right: 50px;
+                    }
+                }
+            }
+    
+            .glootianCreed{
+                .content {
+                    > p {
+                        width: 70%;
+                    }
+                }
+            }
+    
+            .ourValues {
+                .sectionTitle {
+                    margin-bottom: 1em;
+                }
+    
+                .content {
+                    .values {
+                        display: grid;
+                        grid-template-columns: repeat(3, 1fr);
+                        grid-gap: 4em;
+                        grid-row-gap: 3em;
+    
+                        .value {
+                            img {
+                                margin-bottom: 1em;
+                            }
+    
+                            h6 {
+                                color: $glooBlue;
+                                font-weight: 600;
+                                font-size: 1.25em;
+                                margin-bottom: 0;
+                            }
+    
+                            p {
+                                font-size: 1.25em;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .ourInvestors {
+            .investors {
+                .investor {
+                    width: 16em;
+                    height: 11em;
+                }
+            }
+        }
+    }
+}
+
+// Extra small devices
+@include breakpoint(mobile) {
+    body {
+        font-size: 10px;
+
+        > * {
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+
+        header {
+            grid-template-rows: 1fr 10fr;
+            background-position: center center;
+
+            &.single {
+                padding: 2em;
+                height: auto;
+                padding-bottom: 0;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                grid-gap: 5em;
+                padding-bottom: 5em;
+
+                // Why Gloopro and Careers
+                &.single {
+                    padding: 0;
+                    height: auto;
+                    padding: 10em 2em;
+                    padding-top: 5em;
+
+                    .content {
+                        width: 100%;
+                    }
+                }
+
+                .left {
+                    .title {
+                        p {
+                            font-size: 1.25em;
+                        }
+                    }
+
+                    h1 {
+                        font-size: 3.5em;
+                    }
+
+                    > p {
+                        &:first-of-type {
+                            font-size: 1.5em;
+                        }
+
+                        &:nth-of-type(2) {
+                            font-size: 1.25em;
+                        }
+                    }
+
+                    .links {
+                        margin-bottom: 25px;
+    
+                        > * {
+                            &:first-child {
+                                margin-right: 1.5em;
+                            }
+                        }
+
+                        button {
+                            font-size: 1.5em;
+                        }
+    
+                        a {
+                            font-size: 1.5em;
+                            color: $glooPrimary;
+                        }
+                    }
+
+                    .brands {
+                        .content {
+                            .brand {
+                                img {
+                                    height: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .description {
+            .top {
+                h2 {
+                    font-size: 3em;
+                }
+
+                p {
+                    font-size: 1.8em;
+                }
+            }
+
+            .bottom {
+                grid-template-columns: 1fr;
+
+                .right {
+                    p {
+                        &:first-child {
+                            font-size: 1.5em;
+                        }
+                    }
+
+                    ul {
+                        &.glooList {
+                            font-size: 1.25em;
+                            line-height: 2;
+                        }
+                    }
+                }
+            }
+        }
+
+        .features {
+            padding: 6em 2em;
+
+            .heading {
+                font-size: 4em;
+            }
+
+            .body {
+                > * {
+                    &:nth-child(even) {
+                        display: flex;
+                        flex-direction: column-reverse;
+                        align-items: flex-end;
+
+                        > .image {
+                            align-items: flex-start;
+                        }
+                    }
+                }
+                
+                .feature {
+                    grid-template-columns: 1fr;
+
+                    .content {
+                        .image {
+                            img {
+                                max-height: 5em;
+                            }
+                        }
+
+                        h3 {
+                            font-size: 3.5em;
+                        }
+
+                        p {
+                            font-size: 1.8em;
+                        }
+                    }
+
+                    > .image {
+                        img {
+                            width: 80%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .testimonial {
+            padding: 6em 2em;
+            
+            .testimonial-body {
+                flex-direction: column;
+
+                > * {
+                    &:not(:last-child) {
+                        margin-right: 0;
+                    }
+                }
+
+                > * {
+                    &:not(:last-child) {
+                        margin-bottom: 1.5em;
+                    }
+                }
+
+                .testimony {
+                    padding: 3em;
+
+                    .content {
+                        p {
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        .brandsSection {
+            .heading {
+                p {
+                    span {
+                        &:first-child {
+                            font-size: 2em;
+                        }
+
+                        &:nth-child(2) {
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+            }
+            .brandList {
+                flex-wrap: wrap;
+
+                > * {
+                    &:not(:last-child) {
+                        margin-right: 2em;
+                    }
+                }
+
+                .brand {
+                    margin-bottom: 2em;
+                    
+                    img {
+                        max-width: 8.5em;
+                    }
+                }
+            }
+
+            .bottom {
+                .links {
+                    display: flex;
+                    flex-direction: column-reverse;
+
+                    a {
+                        text-align: center;
+                        margin-bottom: 1em;
+                        font-size: 1.5em;
+                    }
+
+                    > * {
+                        &:first-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+
+                p {
+                    &:last-child {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+
+        .certifications {
+            margin-bottom: 0;
+
+            .heading {
+                font-size: 3em;
+                margin-bottom: 0;
+            }
+
+            .content {
+                flex-direction: column;
+
+                > * {
+                    &:not(:last-child) {
+                        margin-right: 0;
+                    }
+                }
+
+                .certification {
+                    .certLogo {
+                        height: 8em;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: flex-end;
+    
+                        img {
+                            max-height: 6em;
+                            max-width: 20em;
+                            margin-bottom: 1.5em;
+                        }
+                    }
+
+                    .content {
+                        p {
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .featured {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 6em 2em;
+
+            .heading {
+                margin-bottom: 1.5em;
+            }
+
+            .brandList {
+                flex-wrap: wrap;
+
+                .brand {
+                    margin-bottom: 2em;
+                }
+            }
+
+        }
+
+        // Contact us
+        .contactAndForm {
+            padding: 4em;
+            grid-template-columns: 1fr;
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        footer {
+            padding: 6em 2em;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: repeat(2, auto), auto;
+            grid-template-areas:
+                "top top"
+                "middleLeft middleRight"
+                "BottomLeft bottomRight";
+            grid-gap: 1em;
+
+            .about {
+                grid-area: top;
+
+                p {
+                    &:first-of-type {
+                        font-size: 1.25em;
+                    }
+    
+                    &:nth-of-type(2) {
+                        font-size: 1em;
+                    }
+                }
+            }
+
+            .links {
+                ul {
+                    li {
+                        font-size: 1.25em;
+                    }
+                }
+            }
+
+            .contact-us {
+                p {
+                    font-size: 1.25em;
+                }
+
+            }
+        }
+
+        // Medium Enterprises
+        .description-mediumEnterprise {
+            .top {}
+
+            .bottom {
+                grid-template-columns: 1fr;
+                
+                .left {
+                    h3 {
+                        font-size: 2em;
+                    }
+    
+                    p {
+                        font-size: 1.5em;
+                    }
+                }
+            }
+        }
+
+        .features-mediumEnterprise {
+            grid-template-columns: 1fr;
+            padding: 6em 2em;
+
+            .feature {
+                h3 {
+                    font-size: 2em;
+                }
+
+                p {
+                    font-size: 1.5em;
+                }
+            }
+        }
+
+        // Large Enterprises
+        .description-largeEnterprise {
+            padding: 4em;
+            grid-template-columns: 1fr;
+
+            > * {
+                &:first-child {
+                    border-right: none;
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .erpIntegration {
+            padding: 4em;
+            
+            .top {
+                width: 100%;
+            }
+
+            .brands {
+                flex-wrap: wrap;
+
+                img {
+                    max-width: 7em;
+                    margin-bottom: 1.5em;
+                }
+
+                > * {
+                    &:not(:last-child) {
+                        margin-right: 1em;
+                    }
+                }
+            }
+        }
+
+        .procurementSimplified {
+            padding: 4em;
+
+            .bottom {
+                grid-template-columns: 1fr;
+
+                .left {
+                    order: 2;
+                }
+
+                .right {
+                    order: 1;
+
+                    img {
+                        width: 95%;
+                    }
+                }
+            }
+        }
+
+        // Careers
+        .gallery {
+            .top {
+                grid-template-columns: 2fr 1.5fr;
+            }
+
+            .bottom {
+                grid-template-columns: 1.5fr 2fr;
+            }
+        }
+
+        .description-careers {
+            padding: 6em 2em;
+
+            h3, h4 {
+                margin-bottom: .5em;
+                font-family: "Larsseit-Medium";
+            }
+
+            h3 {
+                font-size: 2.5em;
+            }
+
+            h4 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1.25em;
+            }
+        }
+
+        .job-openings {
+            padding: 6em 2em;
+
+            .content {
+                .job {
+                    p {
+                        font-size: 1.25em;
+                    }
+
+                    > * {
+                        > * {
+                            display: flex;
+                            flex-direction: column;
+
+                            > * {
+                                &:last-child {
+                                    flex-grow: 1;
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // FAQs
+        .faqs {
+            padding: 6em 2em;
+            .faqs-section {
+                grid-template-columns: 1fr;
+                grid-gap: 1em;
+
+                .heading {
+                    text-align: left;
+                }
+
+                .content {
+                    .question-container {
+                        .question {
+                            p {
+                                font-size: 1.5em;
+                            }
+                        }
+
+                        .answer {
+                            p {
+                                font-size: 1.25em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Customers
+        .customers {
+            padding: 4em;
+            display: flex;
+            flex-direction: column;
+            
+            .brands {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                .customer {
+                    width: calc(100% * (1/2) - 10px);
+                    margin-right: 10px;
+                    margin-bottom: 10px;
+
+                    .image {
+                        height: 1em;
+
+                        img {
+                            max-width: 6em;
+                            max-height: 2em;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Press kit
+        .description-presskit {
+            padding: 30px;
+            
+            .descriptionGroup {
+                grid-template-columns: 1fr;
+                grid-gap: 10em;
+            }
+        }
+
+        .assets {
+            padding: 30px;
+
+            .body {
+                > * {
+                    grid-template-columns: 1fr;
+                    grid-gap: 30px;
+    
+                    .right {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        grid-gap: 0px;
+    
+                        .logo {
+                            .image {
+                                height: 8.5em;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin-bottom: 1em;
+        
+                                &.light {
+                                    background: #EEEEEE;
+                                }
+        
+                                &.dark {
+                                    background: #3B862F;
+                                }
+        
+                                img {
+                                    height: 2.75em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Pricing
+        .pricing-mobile {
+            background: #FBFCFF;
+            font-size: 18px;
+            padding-top: 20px;
+            padding-bottom: 100px;
+            padding: 20px;
+
+            .switch {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 60px;
+
+                > * {
+                    &:not(:last-child) {
+                        margin-right: 20px;
+                    }
+                }
+
+                .radioGroup {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    input[type="radio"] {
+                        width: 20px;
+                        height: 1em;
+                        margin-right: 3px;
+                    }
+
+                    label {
+                        margin-bottom: 0;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .plans {
+                margin-bottom: 100px;
+
+                .plan {
+                    background-color: #FFFFFF;
+                    border: 0.5px solid #A4B0C1;
+                    border-radius: 5px;
+                    
+                    &:not(:last-child) {
+                        margin-bottom: 40px;
+                    }
+
+                    > * {
+                        padding: 15px 30px;
+                    }
+
+                    .head {
+                        display: grid;
+                        grid-template-columns: 5fr 1fr;
+                        background: #F0F6FE;
+                        width: calc(100% + 1px);
+                        margin-left: -1px;
+                        margin-bottom: 20px;
+                        border: 1px solid #DDE5EF;
+                        border-radius: 5px 5px 0 0;
+                        box-shadow: 0 3px 5px 0 rgba(10, 31, 68, 0.1), 0 0 1px 0 rgba(10, 31, 68, 0.08);
+
+                        p {
+                            margin-bottom: 0;
+                        }
+
+                        .left {
+                            h3 {
+                                color: $glooPrimary;
+                                font-family: "Larsseit-Medium";
+                                margin-bottom: 0;
+                            }
+
+                            p {
+                                font-size: .9em;
+                            }
+                        }
+
+                        .right {
+                            p {
+                                font-family: "Larsseit-Medium";
+                                font-size: 2.5em;
+    
+                                sup, sub {
+                                    font-size: .3em;
+                                    vertical-align: baseline;
+                                    position: relative;
+                                    top: -1.25em;
+                                }
+    
+                                sub {
+                                    top: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .body {
+                        padding-bottom: 70px;
+
+                        ul {
+                            padding: 0;
+                            font-size: 1.1em;
+                            margin-bottom: 50px;
+
+                            li {
+                                list-style-type: none;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                margin-bottom: 20px;
+
+                                span {
+                                    display: inline-block;
+                                    width: 15px;
+                                    height: 15px;
+                                    margin-right: 15px;
+                                }
+
+                                &.positive {
+                                    span {
+                                        background: url("../images/icons/check.svg") center no-repeat;
+                                        background-size: contain;
+                                    }
+                                }
+
+                                &.negative {
+                                    span {
+                                        background: url("../images/icons/cancel.svg") center no-repeat;
+                                        background-size: contain;
+                                    }
+                                }
+
+                                &.content {
+                                    align-items: flex-start;
+
+                                    span {
+                                        background-color: transparent;
+                                        font-weight: 600;
+                                    }
+                                }
+
+                                p {
+                                    display: inline-block;
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+
+                        a {
+                            &.glooPButton {
+                                display: flex;
+                                flex-direction: column;
+                                text-align: center;
+                                font-size: .8em;
+                                padding-top: 15px;
+                                padding-bottom: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // About
+        .description-about-us {
+            padding: 20px;
+
+            > * {
+                &:not(.ourValues):not(.glootianCreed) {
+                    .content {
+                        grid-template-columns: 1fr;
+                        grid-gap: 20px;
+
+                        .text {
+                            order: 2;
+                        }
+
+                        .image {
+                            order: 1;
+
+                            img {
+                                max-width: 280px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .ourValues {
+                .content {
+                    .values {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            }
+
+            .glootianCreed {
+                .content {
+                    > p {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        .ourInvestors {
+            .investors {
+                flex-direction: column;
+    
+                .investor {
+                    width: 100%;
+                    // height: 15em;
+    
+                    &:not(:last-child) {
+                        border-right: 0;
+                    }
+                }
+            }
+        }
+
+        .pressSection {
+            padding: 20px;
+
+            .pressGroup {   
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+    
+                a {
+                    color: $glooBlack;
+    
+                    &:hover {
+                        text-decoration: none;
+                        color: $glooBlack;
+                    }
+    
+                    .press {
+                        padding: 1.5em;
+                        border-radius: 5px;
+    
+                        .image {
+                            margin-bottom: 1em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .cta {
+            padding: 20px;
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// General styles
+nav {
+    .menu-wrapper {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+
+        .menu {
+            cursor: pointer;
+
+            span {
+                display: block;
+                width: 2.5em;
+                height: .25em;
+                background: $glooPrimary;
+
+                &:not(:last-child) {
+                    margin-bottom: .5em;
+                }
+            }
+        }
+    }
+}

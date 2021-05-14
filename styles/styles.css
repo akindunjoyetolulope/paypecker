@@ -754,8 +754,19 @@ body {
         margin-right: 3em; }
       body .featured .brandList .brand img {
         max-width: 10em; }
+       .footer{
+          background: #ffffff;
+          color: #53627C;
+          padding: 0em;} 
+        .footer ul li{
+          list-style-type: none;
+          padding: 10px;
+          display: inline;}
+          .footer ul li a{
+            color: #53627C; }
+
   body footer {
-    background: #F6F8FD;
+    background: #ffffff;
     color: #53627C;
     padding: 3em 6em;
     display: grid;
@@ -770,7 +781,7 @@ body {
     body footer ul {
       padding: 0; }
       body footer ul li {
-        list-style-type: none; }
+        list-style-type: none;}
     body footer .about img {
       margin-bottom: 1em; }
     body footer .about p:first-of-type {
